@@ -39,7 +39,7 @@ function App() {
   // Must be used within a function
   const [drinkCount, setDrinkCount] = useState(1);
 
-  let name = 'Dusty';
+  const [name, setName] = useState('Dusty');
 
   let myH1 = <h1>Go home, {name}, you're drunk</h1>;
 
@@ -62,6 +62,20 @@ function App() {
         Sober Up...
       </button>
 
+      <input
+        placeholder="Enter your name, plz"
+        onChange={(event) => {
+          console.log('changing name', event.target.value);
+
+          // in jQuery we'd do...
+          // $(this).val()
+          //
+          // in React:
+          // event.target.value
+          
+          setName(event.target.value);
+        }}
+      />
     </div>
   );
 }
